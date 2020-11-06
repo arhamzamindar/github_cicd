@@ -6,3 +6,18 @@ install:
   - pip install -r requirements.txt
 script:
   - python application.py
+
+
+language: python
+
+
+services:
+  - docker
+
+before_install:
+- docker build --tag travisci:1.0 .
+
+
+
+script:
+- docker run travisci:1.0
